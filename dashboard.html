@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/src/output.css">
+    <!-- <style>
+        .bg-navy {
+            background-color: #1b2a4a;
+        }
+
+        .text-navy {
+            color: #1b2a4a;
+        }
+
+        .border-navy {
+            border-color: #1b2a4a;
+        }
+
+        .stroke-navy {
+            stroke: #1b2a4a;
+        }
+
+        .text-amber {
+            color: #e8a020;
+        }
+
+        .bg-amber {
+            background-color: #e8a020;
+        }
+
+        .bg-light-blue {
+            background-color: #a8cee0;
+        }
+
+        .text-blue-link {
+            color: #4a90d9;
+        }
+
+        .stroke-blue {
+            stroke: #5a96c8;
+        }
+
+        .fill-blue-area {
+            fill: url(#areaGrad);
+        }
+    </style> -->
+</head>
+
+<body class="h-screen flex flex-col">
+
+    <div class="flex justify-around container mx-auto p-6 bg-white">
+        <div>
+            <header class="flex justify-between items-center z-20 shrink-0">
+                <div class="flex items-center gap-2">
+                    <img src="../assets/British School 1.png" alt="">
+
+                </div>
+                <div class="text-xs mr-8">
+                    <span class="text-gray-400">...Administrator/</span>
+                    <span class="font-semibold" style="color:#e8a020;">Dashboard</span>
+                </div>
+            </header>
+
+            <div class="flex flex-1 mt-8">
+                <aside class="w-16 shrink-0 flex flex-col items-center bg-[#1b2a4a] py-5 gap-2 z-10 rounded-t-full">
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white"
+                        style="transition:background 0.2s">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <span class="text-xs font-bold">ABC</span>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </button>
+                    <div class="mt-auto">
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                            </svg>
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="flex-1 overflow-y-auto p-5" style="display:flex; flex-direction:column; gap:1rem;">
+
+                    <!-- Search -->
+                    <div class="relative">
+                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                        <input type="text" placeholder="Search..."
+                            class="pl-11 pr-4 py-2 rounded-full border border-gray-200 bg-white text-sm focus:outline-none text-gray-400" />
+                    </div>
+
+                    <!-- STAT CARDS -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
+                            <div class="w-14 h-14 shrink-0 flex items-center justify-center rounded-full border-8 border-t-amber-500 border-l-amber-500 border-r-[#1b2a4a] border-b-[#1b2a4a]">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#1b2a4a" stroke-width="2" class="w-5 h-5">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Students
+                                </p>
+                                <div class="flex gap-2 mb-1">
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#1b2a4a"></span>Male (61%)</span>
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#e8a020"></span>Female (39%)</span>
+                                </div>
+                                <p class="text-2xl font-bold text-gray-600">308</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
+                            <div class="w-14 h-14 shrink-0 flex items-center justify-center rounded-full border-8 border-t-amber-500 border-l-amber-500 border-r-[#1b2a4a] border-b-[#1b2a4a]">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#1b2a4a" stroke-width="2" class="w-5 h-5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                                    <path d="M8 21h8M12 17v4" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Staff</p>
+                                <div class="flex gap-2 mb-1">
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#1b2a4a"></span>Male (55%)</span>
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#e8a020"></span>Female (45%)</span>
+                                </div>
+                                <p class="text-2xl font-bold text-gray-600">100</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
+                            <div class="w-14 h-14 shrink-0 flex items-center justify-center rounded-full border-8 border-t-amber-500 border-l-amber-500 border-r-[#1b2a4a] border-b-[#1b2a4a]">
+                                <span class="text-xs font-bold" style="color:#1b2a4a">ABC</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Subjects
+                                </p>
+                                <div class="flex gap-2 mb-1">
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#1b2a4a"></span>Science (50%)</span>
+                                    <span class="flex items-center gap-1 text-xs text-gray-400"><span
+                                            class="w-2 h-2 rounded-sm inline-block"
+                                            style="background:#e8a020"></span>Arts (50%)</span>
+                                </div>
+                                <p class="text-2xl font-bold text-gray-600">50</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-2xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-sm font-semibold text-gray-700">Attendance Summary</h3>
+                                <div class="flex gap-2">
+                                    <select
+                                        class="text-xs border border-gray-200 rounded-lg px-2 py-1 text-gray-500 focus:outline-none bg-white">
+                                        <option>Monthly</option>
+                                        <option>Weekly</option>
+                                    </select>
+                                    <select
+                                        class="text-xs border border-gray-200 rounded-lg px-2 py-1 text-gray-500 focus:outline-none bg-white">
+                                        <option>Students</option>
+                                        <option>Staff</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <svg viewBox="0 0 420 160" class="w-full" style="height:11rem" preserveAspectRatio="none">
+                                <line x1="36" y1="10" x2="415" y2="10" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="42" x2="415" y2="42" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="74" x2="415" y2="74" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="106" x2="415" y2="106" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="138" x2="415" y2="138" stroke="#f3f4f6" stroke-width="1" />
+                                <text x="28" y="14" text-anchor="end" font-size="9" fill="#9ca3af">100</text><text
+                                    x="28" y="46" text-anchor="end" font-size="9" fill="#9ca3af">80</text><text x="28"
+                                    y="78" text-anchor="end" font-size="9" fill="#9ca3af">60</text><text x="28" y="110"
+                                    text-anchor="end" font-size="9" fill="#9ca3af">20</text><text x="28" y="142"
+                                    text-anchor="end" font-size="9" fill="#9ca3af">0</text>
+                                <defs>
+                                    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#5a96c8" stop-opacity="0.35" />
+                                        <stop offset="100%" stop-color="#5a96c8" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="M66,46 C88,40 108,35 130,33 C152,31 172,50 194,48 C216,46 236,22 258,25 C280,28 302,98 322,102 C344,106 364,38 386,42 L386,138 L66,138 Z"
+                                    fill="url(#areaGrad)" />
+                                <path
+                                    d="M66,46 C88,40 108,35 130,33 C152,31 172,50 194,48 C216,46 236,22 258,25 C280,28 302,98 322,102 C344,106 364,38 386,42"
+                                    fill="none" stroke="#5a96c8" stroke-width="2.5" stroke-linejoin="round"
+                                    stroke-linecap="round" />
+                                <rect x="114" y="20" width="34" height="18" rx="4" fill="#1b2a4a" /><text x="131" y="32"
+                                    text-anchor="middle" font-size="9" fill="white" font-weight="600">70%</text>
+                                <polygon points="128,38 134,38 131,43" fill="#1b2a4a" />
+                                <circle cx="66" cy="46" r="4" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <circle cx="130" cy="33" r="4" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <circle cx="194" cy="48" r="5" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <circle cx="258" cy="25" r="4" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <circle cx="322" cy="102" r="4" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <circle cx="386" cy="42" r="4" fill="white" stroke="#5a96c8" stroke-width="2" />
+                                <text x="66" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Jan</text><text
+                                    x="130" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Feb</text><text
+                                    x="194" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Mar</text><text
+                                    x="258" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Apr</text><text
+                                    x="322" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">May</text><text
+                                    x="386" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Jun</text>
+                            </svg>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-sm font-semibold text-gray-700">Financial Summary</h3>
+                            </div>
+                            <svg viewBox="0 0 420 160" class="w-full" style="height:11rem" preserveAspectRatio="none">
+                                <line x1="36" y1="10" x2="415" y2="10" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="42" x2="415" y2="42" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="74" x2="415" y2="74" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="106" x2="415" y2="106" stroke="#f3f4f6" stroke-width="1" />
+                                <line x1="36" y1="138" x2="415" y2="138" stroke="#f3f4f6" stroke-width="1" />
+                                <text x="28" y="14" text-anchor="end" font-size="9" fill="#9ca3af">400k</text><text
+                                    x="28" y="46" text-anchor="end" font-size="9" fill="#9ca3af">300k</text><text x="28"
+                                    y="78" text-anchor="end" font-size="9" fill="#9ca3af">200k</text><text x="28"
+                                    y="110" text-anchor="end" font-size="9" fill="#9ca3af">100k</text><text x="28"
+                                    y="142" text-anchor="end" font-size="9" fill="#9ca3af">0</text>
+                                <rect x="46" y="48" width="14" height="90" rx="2" fill="#1b2a4a" />
+                                <rect x="62" y="76" width="14" height="62" rx="2" fill="#a8cee0" />
+                                <rect x="108" y="92" width="14" height="46" rx="2" fill="#1b2a4a" />
+                                <rect x="124" y="103" width="14" height="35" rx="2" fill="#a8cee0" />
+                                <rect x="170" y="79" width="14" height="59" rx="2" fill="#1b2a4a" />
+                                <rect x="186" y="88" width="14" height="50" rx="2" fill="#a8cee0" />
+                                <rect x="232" y="82" width="14" height="56" rx="2" fill="#1b2a4a" />
+                                <rect x="248" y="93" width="14" height="45" rx="2" fill="#a8cee0" />
+                                <rect x="294" y="112" width="14" height="26" rx="2" fill="#1b2a4a" />
+                                <rect x="310" y="128" width="14" height="10" rx="2" fill="#a8cee0" />
+                                <rect x="356" y="135" width="14" height="3" rx="1" fill="#1b2a4a" />
+                                <rect x="372" y="136" width="14" height="2" rx="1" fill="#a8cee0" />
+                                <text x="57" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Jn</text><text
+                                    x="119" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Fb</text><text
+                                    x="181" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Mc</text><text
+                                    x="243" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Ap</text><text
+                                    x="305" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">My</text><text
+                                    x="367" y="155" text-anchor="middle" font-size="9" fill="#9ca3af">Ju</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-semibold text-gray-700">Recently registered users</h3>
+                            <a href="#" class="text-xs text-gray-400 hover:text-yellow-500">view all users</a>
+                        </div>
+                        <table class="w-full text-xs">
+                            <thead>
+                                <tr class="shadow-md">
+                                    <th class="text-left py-2 font-semibold text-gray-500 pl-4">Name</th>
+                                    <th
+                                        class="text-left py-2 font-semibold text-gray-500 border-l border-gray-100 pl-4">
+                                        ID</th>
+                                    <th
+                                        class="text-left py-2 font-semibold text-gray-500 border-l border-gray-100 pl-4">
+                                        Role</th>
+                                    <th
+                                        class="text-left py-2 font-semibold text-gray-500 border-l border-gray-100 pl-4">
+                                        Gender</th>
+                                    <th
+                                        class="text-left py-2 font-semibold text-gray-500 border-l border-gray-100 pl-4">
+                                        Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 text-gray-500 pl-4 shadow-md">ActivEdge Technologies</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">AET154-5671</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Teacher</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Male</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">activedge@gmail...</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 text-gray-500 pl-4 shadow-md">ActivEdge Technologies</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">AET154-5672</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Teacher</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Female</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">activedge@gmail...</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 text-gray-500 pl-4 shadow-md">ActivEdge Technologies</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">AET154-5673</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Admin</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">Male</td>
+                                    <td class="py-3 text-gray-500 border-l border-gray-100 pl-4 shadow-md">activedge@gmail...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div>
+            <aside class="shrink-0 gap-8 flex flex-col">
+                <div class="flex items-center gap-3 px-4 py-3 shadow-md rounded-2xl">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5"
+                        class="w-5 h-5 shrink-0">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 01-3.46 0" />
+                    </svg>
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                        <img src="../assets/unsplash_wRdYnqXtyYk.png" alt="">
+                    </div>
+                    <span class="text-sm font-medium text-gray-700 flex-1">User</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gray-400">
+                        <path d="M7 10l5 5 5-5z" />
+                    </svg>
+                </div>
+
+                <!-- Calendar -->
+                <div class="p-4 shadow-md rounded-2xl">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-sm font-semibold" style="color:#4a90d9">April, 2022</h4>
+                        <div class="flex gap-1">
+                            <button class="text-gray-400 hover:text-gray-600 p-0.5"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" class="w-3 h-3">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg></button>
+                            <button class="text-gray-400 hover:text-gray-600 p-0.5"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" class="w-3 h-3">
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-7 text-center mb-1" style="font-size:10px;font-weight:600">
+                        <span class="text-red-400">Sun</span><span class="text-gray-400">Mon</span><span
+                            class="text-gray-400">Tue</span><span class="text-gray-400">Wed</span><span
+                            class="text-gray-400">Thu</span><span class="text-gray-400">Fri</span><span
+                            class="text-gray-400">Sat</span>
+                    </div>
+                    <div class="grid grid-cols-7 text-center gap-y-1" style="font-size:11px">
+                        <span class="py-1 text-gray-300">28</span><span class="py-1 text-gray-300">29</span><span
+                            class="py-1 text-gray-300">30</span><span class="py-1 text-gray-300">31</span><span
+                            class="py-1 text-gray-400"></span>
+                        <span class="py-1"><span
+                                class="w-6 h-6 rounded-full text-white flex items-center justify-center mx-auto font-semibold"
+                                style="background:#1b2a4a;font-size:10px">1</span></span>
+                        <span class="py-1 text-gray-500 relative">2<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                                style="background:#e8a020"></span></span>
+                        <span class="py-1 text-red-400">3</span><span class="py-1 text-gray-500">4</span><span
+                            class="py-1 text-gray-500">5</span><span class="py-1 text-gray-500">6</span><span
+                            class="py-1 text-gray-500">7</span><span class="py-1 text-gray-500">8</span>
+                        <span class="py-1 text-gray-500 relative">9<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                                style="background:#e8a020"></span></span>
+                        <span class="py-1 text-red-400">10</span><span class="py-1 text-gray-500">11</span><span
+                            class="py-1 text-gray-500">12</span><span class="py-1 text-gray-500">13</span><span
+                            class="py-1 text-gray-500">14</span>
+                        <span class="py-1 text-gray-500 relative">15<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-blue-400"></span></span>
+                        <span class="py-1 text-gray-500">16</span>
+                        <span class="py-1 text-red-400 relative">17<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-blue-400"></span></span>
+                        <span class="py-1 text-gray-500">18</span><span class="py-1 text-gray-500">19</span><span
+                            class="py-1 text-gray-500">20</span><span class="py-1 text-gray-500">21</span><span
+                            class="py-1 text-gray-500">22</span><span class="py-1 text-gray-500">23</span>
+                        <span class="py-1 text-red-400">24</span>
+                        <span class="py-1 text-gray-500 relative">25<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                                style="background:#e8a020"></span></span>
+                        <span class="py-1 text-gray-500 relative">26<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+                        <span class="py-1 text-gray-500 relative">27<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+                        <span class="py-1 text-gray-500 relative">28<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+                        <span class="py-1 text-gray-500 relative">29<span
+                                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                                style="background:#e8a020"></span></span>
+                        <span class="py-1 text-gray-500">30</span>
+                        <span class="py-1 text-gray-300">2</span><span class="py-1 text-gray-300">3</span><span
+                            class="py-1 text-gray-300">4</span><span class="py-1 text-gray-300">5</span><span
+                            class="py-1 text-gray-300">6</span><span class="py-1 text-gray-300">7</span>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="p-4 flex-1 shadow-md rounded-2xl">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Upcoming events</h4>
+                    <div class="flex gap-1 mb-3 flex-wrap">
+                        <button class="px-3 py-1 rounded-full text-white text-xs font-medium"
+                            style="background:#1b2a4a">All</button>
+                        <button
+                            class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Today</button>
+                        <button
+                            class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Weekly</button>
+                        <button
+                            class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Monthly</button>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.5rem">
+                        <div class="rounded-xl p-3" style="background:#fffbeb">
+                            <p class="text-xs font-semibold mb-1" style="color:#e8a020">Saturday</p>
+                            <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Diam.</p>
+                            <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+                        </div>
+                        <div class="rounded-xl p-3 bg-green-50">
+                            <p class="text-xs font-semibold text-green-500 mb-1">Saturday</p>
+                            <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Diam.</p>
+                            <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+                        </div>
+                        <div class="rounded-xl p-3 bg-red-50">
+                            <p class="text-xs font-semibold text-red-400 mb-1">Saturday</p>
+                            <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Diam.</p>
+                            <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+                        </div>
+                        <div class="rounded-xl p-3 bg-gray-100">
+                            <p class="text-xs font-semibold text-gray-400 mb-1">Saturday</p>
+                            <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Diam.</p>
+                            <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

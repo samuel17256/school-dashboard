@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher's Dashboard</title>
+ <link rel="stylesheet" href="/src/output.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .sidebar {
+      background: #1a2744;
+    }
+
+    .nav-icon {
+      color: #5a6a8a;
+      transition: color 0.2s;
+    }
+
+    .nav-icon:hover,
+    .nav-icon.active {
+      color: #f5a623;
+    }
+
+    .donut-ring {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: conic-gradient(#1a2744 0% 61%, #f5a623 61% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut-inner {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendar-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .assignment-card {
+      border-bottom: 3px solid #f5a623;
+    }
+
+    .event-card-yellow {
+      background: #fffbeb;
+      border-left: 4px solid #f5a623;
+    }
+
+    .event-card-green {
+      background: #f0fdf4;
+      border-left: 4px solid #4ade80;
+    }
+
+    .event-card-red {
+      background: #fff1f2;
+      border-left: 4px solid #f87171;
+    }
+
+    .event-card-gray {
+      background: #f8fafc;
+      border-left: 4px solid #cbd5e1;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+    }
+
+    .slider-dot.active {
+      background: #1a2744;
+      width: 10px;
+      height: 10px;
+    }
+
+    .rank-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f5a623;
+      background: #fff8e7;
+    }
+
+    .syllabus-card {
+      background: linear-gradient(135deg, #1e3a6e 0%, #2a4f9f 100%);
+    }
+
+    .syllabus-card-inner {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(4px);
+    }
+
+    .present-text {
+      color: #374151;
+    }
+
+    .absent-text {
+      color: #f87171;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 h-screen">
+
+  <div class="flex justify-around p-6 container mx-auto">
+    <div>
+      <header class="flex items-center z-20 shrink-0 justify-between">
+        <div class="flex items-center gap-2">
+          <img src="../assets/British School 1.png" alt="">
+        </div>
+        <!-- Search -->
+        <div class="flex-1 max-w-lg mx-8">
+          <div class="flex items-center bg-gray-50 border border-gray-200 rounded-full px-4 py-2 gap-2">
+            <svg width="16" height="16" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input type="text" placeholder="Search..." class="bg-transparent text-sm text-gray-500 outline-none w-full">
+          </div>
+        </div>
+      </header>
+
+      <div class="flex flex-1 mt-8">
+        <aside class="w-16 shrink-0 flex flex-col items-center bg-[#1b2a4a] py-5 gap-2 z-10 rounded-t-full">
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white"
+            style="transition:background 0.2s">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <span class="text-xs font-bold">ABC</span>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </button>
+          <div class="mt-auto">
+            <button class="w-10 h-10 flex items-center justify-center rounded-xl text-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+              </svg>
+            </button>
+          </div>
+        </aside>
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col min-h-screen">
+          <div class="flex flex-1">
+            <div class="flex-1 p-8 overflow-y-auto">
+              <div class="flex gap-6 mb-8">
+                <div class="flex-1">
+                  <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-2">
+                    Good Morning
+                    <span class="text-2xl">⭐</span>
+                  </h1>
+                  <h2 class="text-3xl font-bold text-gray-900 mt-1">Mr. Johnson Maduka</h2>
+                </div>
+
+                <!-- Students Widget -->
+                <div class="bg-white rounded-2xl p-5 flex items-center gap-4 shadow-sm min-w-64">
+                  <div class="donut-ring">
+                    <div class="donut-inner">
+                      <svg width="24" height="24" fill="none" stroke="#1a2744" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M6 20v-1a6 6 0 0112 0v1" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold tracking-wider text-gray-600 mb-1">STUDENTS</div>
+                    <div class="flex items-center gap-3 text-xs mb-2">
+                      <span class="flex items-center gap-1"><span
+                          class="w-2 h-2 rounded-full bg-gray-800 inline-block"></span> MALE (61%)</span>
+                      <span class="flex items-center gap-1"><span
+                          class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span> FEMALE (39%)</span>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-900">308</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Syllabus + Rankings Row -->
+              <div class="flex gap-6 mb-8">
+                <!-- Syllabus Guide -->
+                <div class="syllabus-card rounded-2xl p-5 flex-1 overflow-hidden">
+                  <h3 class="text-white font-semibold text-base mb-4">Syllabus Guide</h3>
+                  <div class="flex gap-3">
+                    <!-- Completed card -->
+                    <div class="bg-white bg-opacity-20 rounded-xl p-3 flex items-center gap-2 flex-1">
+                      <div class="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center">
+                        <svg width="14" height="14" fill="white" viewBox="0 0 24 24">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </div>
+                      <span class="text-white text-xs font-medium">esign</span>
+                    </div>
+                    <!-- Active card -->
+                    <div class="bg-white rounded-xl p-3 flex-1 min-w-36 relative">
+                      <div
+                        class="absolute top-2 right-2 w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <svg width="10" height="10" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-8 h-8 bg-yellow-50 rounded-lg flex items-center justify-center">
+                          <svg width="18" height="18" fill="none" stroke="#f5a623" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM12 7v5l3 3" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="text-xs font-bold text-gray-900">Basic Design</div>
+                          <div class="text-xs text-yellow-500">Introduction to Graphics Design</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Next card -->
+                    <div class="bg-red-50 rounded-xl p-3 flex items-center gap-2 w-12 overflow-hidden">
+                      <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center shrink-0">
+                        <svg width="18" height="18" fill="none" stroke="#f87171" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM12 7v5l3 3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Dots -->
+                  <div class="flex justify-center gap-2 mt-4">
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                  </div>
+                </div>
+
+                <!-- Student Rankings -->
+                <div class="bg-white rounded-2xl p-5 min-w-56 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 text-base mb-4">Student Rankings</h3>
+                  <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="rank-circle bg-yellow-100 text-yellow-600 font-bold text-sm w-7 h-7 flex items-center justify-center rounded-full">
+                        1</div>
+                      <span class="text-sm text-gray-600">ActivEdge Technologies</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="rank-circle bg-yellow-50 text-yellow-500 font-bold text-sm w-7 h-7 flex items-center justify-center rounded-full">
+                        2</div>
+                      <span class="text-sm text-gray-600">ActivEdge Technologies</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="rank-circle bg-yellow-50 text-yellow-400 font-bold text-sm w-7 h-7 flex items-center justify-center rounded-full">
+                        3</div>
+                      <span class="text-sm text-gray-600">ActivEdge Technologies</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Current Assignments -->
+              <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                  <h3 class="font-semibold text-gray-900 text-base">Current Assignments</h3>
+                  <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                    <svg width="12" height="12" fill="none" stroke="#374151" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <!-- Assignment Card 1 -->
+                  <div class="bg-white rounded-2xl p-4 flex-1 shadow-sm assignment-card">
+                    <div class="font-semibold text-gray-900 text-sm mb-1">Basic Design</div>
+                    <div class="text-xs text-gray-500 mb-4">Introduction to Graphics Design</div>
+                    <div class="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24">
+                          <rect x="3" y="4" width="18" height="18" rx="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" />
+                          <line x1="8" y1="2" x2="8" y2="6" />
+                          <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <span>25<sup>TH</sup> March 2022</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#f87171" stroke-width="2" viewBox="0 0 24 24">
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                        <span class="text-red-400">8<sup>TH</sup> April 2022</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-blue-500 text-white text-xs flex items-center justify-center font-semibold">
+                          32</div>
+                        <span class="text-xs text-gray-500">Submitted</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-yellow-400 text-white text-xs flex items-center justify-center font-semibold">
+                          18</div>
+                        <span class="text-xs text-gray-500">Not Submitted</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Assignment Card 2 -->
+                  <div class="bg-white rounded-2xl p-4 flex-1 shadow-sm assignment-card">
+                    <div class="font-semibold text-gray-900 text-sm mb-1">Basic Design</div>
+                    <div class="text-xs text-gray-500 mb-4">Introduction to Graphics Design</div>
+                    <div class="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24">
+                          <rect x="3" y="4" width="18" height="18" rx="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" />
+                          <line x1="8" y1="2" x2="8" y2="6" />
+                          <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <span>25<sup>TH</sup> March 2022</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#f87171" stroke-width="2" viewBox="0 0 24 24">
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                        <span class="text-red-400">8<sup>TH</sup> April 2022</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-blue-500 text-white text-xs flex items-center justify-center font-semibold">
+                          32</div>
+                        <span class="text-xs text-gray-500">Submitted</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-yellow-400 text-white text-xs flex items-center justify-center font-semibold">
+                          18</div>
+                        <span class="text-xs text-gray-500">Not Submitted</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Assignment Card 3 -->
+                  <div class="bg-white rounded-2xl p-4 flex-1 shadow-sm assignment-card">
+                    <div class="font-semibold text-gray-900 text-sm mb-1">Basic Design</div>
+                    <div class="text-xs text-gray-500 mb-4">Introduction to Graphics Design</div>
+                    <div class="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24">
+                          <rect x="3" y="4" width="18" height="18" rx="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" />
+                          <line x1="8" y1="2" x2="8" y2="6" />
+                          <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <span>25<sup>TH</sup> March 2022</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="#f87171" stroke-width="2" viewBox="0 0 24 24">
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                        <span class="text-red-400">8<sup>TH</sup> April 2022</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-blue-500 text-white text-xs flex items-center justify-center font-semibold">
+                          32</div>
+                        <span class="text-xs text-gray-500">Submitted</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <div
+                          class="w-6 h-6 rounded-full bg-yellow-400 text-white text-xs flex items-center justify-center font-semibold">
+                          18</div>
+                        <span class="text-xs text-gray-500">Not Submitted</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slider dots -->
+                <div class="flex justify-center gap-2 mt-4">
+                  <div class="slider-dot"></div>
+                  <div class="slider-dot active"></div>
+                  <div class="slider-dot"></div>
+                </div>
+              </div>
+
+              <!-- Student Attendance -->
+              <div class="bg-white rounded-2xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-semibold text-gray-900 text-base">Student Attendance</h3>
+                  <div
+                    class="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-1 text-sm text-gray-700">
+                    <span>Week 6</span>
+                    <svg width="14" height="14" fill="none" stroke="#374151" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th class="text-left text-gray-600 font-medium pb-3 w-2/5">Name</th>
+                      <th class="text-center text-gray-600 font-medium pb-3">Mon</th>
+                      <th class="text-center text-gray-600 font-medium pb-3">Tues</th>
+                      <th class="text-center text-gray-600 font-medium pb-3">Wed</th>
+                      <th class="text-center text-gray-600 font-medium pb-3">Thurs</th>
+                      <th class="text-center text-gray-600 font-medium pb-3">Fri</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-50">
+                      <td class="py-3 text-gray-500">ActivEdge Technologies</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3 absent-text font-medium">Absent</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3">
+                        <div class="w-4 h-4 border border-gray-300 rounded mx-auto"></div>
+                      </td>
+                    </tr>
+                    <tr class="border-b border-gray-50">
+                      <td class="py-3 text-gray-500">ActivEdge Technologies</td>
+                      <td class="text-center py-3 absent-text font-medium">Absent</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3 present-text">Present</td>
+                      <td class="text-center py-3">
+                        <div class="w-4 h-4 border border-gray-300 rounded mx-auto"></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <aside class="shrink-0 gap-8 flex flex-col">
+        <div class="flex items-center gap-3 px-4 py-3 shadow-md rounded-2xl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="w-5 h-5 shrink-0">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 01-3.46 0" />
+          </svg>
+          <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+            <img src="../assets/unsplash_wRdYnqXtyYk.png" alt="">
+          </div>
+          <span class="text-sm font-medium text-gray-700 flex-1">User</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gray-400">
+            <path d="M7 10l5 5 5-5z" />
+          </svg>
+        </div>
+
+        <!-- Calendar -->
+        <div class="p-4 shadow-md rounded-2xl">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-sm font-semibold" style="color:#4a90d9">April, 2022</h4>
+            <div class="flex gap-1">
+              <button class="text-gray-400 hover:text-gray-600 p-0.5"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" class="w-3 h-3">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg></button>
+              <button class="text-gray-400 hover:text-gray-600 p-0.5"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" class="w-3 h-3">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></button>
+            </div>
+          </div>
+          <div class="grid grid-cols-7 text-center mb-1" style="font-size:10px;font-weight:600">
+            <span class="text-red-400">Sun</span><span class="text-gray-400">Mon</span><span
+              class="text-gray-400">Tue</span><span class="text-gray-400">Wed</span><span
+              class="text-gray-400">Thu</span><span class="text-gray-400">Fri</span><span
+              class="text-gray-400">Sat</span>
+          </div>
+          <div class="grid grid-cols-7 text-center gap-y-1" style="font-size:11px">
+            <span class="py-1 text-gray-300">28</span><span class="py-1 text-gray-300">29</span><span
+              class="py-1 text-gray-300">30</span><span class="py-1 text-gray-300">31</span><span
+              class="py-1 text-gray-400"></span>
+            <span class="py-1"><span
+                class="w-6 h-6 rounded-full text-white flex items-center justify-center mx-auto font-semibold"
+                style="background:#1b2a4a;font-size:10px">1</span></span>
+            <span class="py-1 text-gray-500 relative">2<span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                style="background:#e8a020"></span></span>
+            <span class="py-1 text-red-400">3</span><span class="py-1 text-gray-500">4</span><span
+              class="py-1 text-gray-500">5</span><span class="py-1 text-gray-500">6</span><span
+              class="py-1 text-gray-500">7</span><span class="py-1 text-gray-500">8</span>
+            <span class="py-1 text-gray-500 relative">9<span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                style="background:#e8a020"></span></span>
+            <span class="py-1 text-red-400">10</span><span class="py-1 text-gray-500">11</span><span
+              class="py-1 text-gray-500">12</span><span class="py-1 text-gray-500">13</span><span
+              class="py-1 text-gray-500">14</span>
+            <span class="py-1 text-gray-500 relative">15<span
+                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-blue-400"></span></span>
+            <span class="py-1 text-gray-500">16</span>
+            <span class="py-1 text-red-400 relative">17<span
+                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-blue-400"></span></span>
+            <span class="py-1 text-gray-500">18</span><span class="py-1 text-gray-500">19</span><span
+              class="py-1 text-gray-500">20</span><span class="py-1 text-gray-500">21</span><span
+              class="py-1 text-gray-500">22</span><span class="py-1 text-gray-500">23</span>
+            <span class="py-1 text-red-400">24</span>
+            <span class="py-1 text-gray-500 relative">25<span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                style="background:#e8a020"></span></span>
+            <span class="py-1 text-gray-500 relative">26<span
+                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+            <span class="py-1 text-gray-500 relative">27<span
+                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+            <span class="py-1 text-gray-500 relative">28<span
+                class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-400"></span></span>
+            <span class="py-1 text-gray-500 relative">29<span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full"
+                style="background:#e8a020"></span></span>
+            <span class="py-1 text-gray-500">30</span>
+            <span class="py-1 text-gray-300">2</span><span class="py-1 text-gray-300">3</span><span
+              class="py-1 text-gray-300">4</span><span class="py-1 text-gray-300">5</span><span
+              class="py-1 text-gray-300">6</span><span class="py-1 text-gray-300">7</span>
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="p-4 flex-1 shadow-md rounded-2xl">
+          <h4 class="text-sm font-semibold text-gray-700 mb-3">Upcoming events</h4>
+          <div class="flex gap-1 mb-3 flex-wrap">
+            <button class="px-3 py-1 rounded-full text-white text-xs font-medium"
+              style="background:#1b2a4a">All</button>
+            <button class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Today</button>
+            <button class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Weekly</button>
+            <button class="px-3 py-1 rounded-full border border-gray-200 text-gray-400 text-xs">Monthly</button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <div class="rounded-xl p-3" style="background:#fffbeb">
+              <p class="text-xs font-semibold mb-1" style="color:#e8a020">Saturday</p>
+              <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Diam.</p>
+              <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+            </div>
+            <div class="rounded-xl p-3 bg-green-50">
+              <p class="text-xs font-semibold text-green-500 mb-1">Saturday</p>
+              <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Diam.</p>
+              <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+            </div>
+            <div class="rounded-xl p-3 bg-red-50">
+              <p class="text-xs font-semibold text-red-400 mb-1">Saturday</p>
+              <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Diam.</p>
+              <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+            </div>
+            <div class="rounded-xl p-3 bg-gray-100">
+              <p class="text-xs font-semibold text-gray-400 mb-1">Saturday</p>
+              <p class="text-gray-500" style="font-size:10px;line-height:1.5">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Diam.</p>
+              <p class="text-gray-400 mt-1 text-right" style="font-size:9px">9th April 2022</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</body>
+
+</html>
